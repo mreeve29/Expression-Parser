@@ -4,7 +4,6 @@ public class ParserGUI extends GBFrame{
 	
 	
 	
-	
 	public ParserGUI() {
 		
 	}
