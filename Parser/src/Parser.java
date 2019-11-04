@@ -1,9 +1,16 @@
+import java.util.Stack;
+
 public class Parser {
 
 	private String raw;
 	
+	private Stack numbers = new Stack<Integer>();
+	private Stack operators = new Stack<Character>();
+	
+	
 	public Parser(String input) {
 		raw = input;
+		stripRaw();
 	}
 	
 	
@@ -21,4 +28,18 @@ public class Parser {
 	public String getRaw() {
 		return raw;
 	}
+	
+//	private void readExpression() {
+//		char[] split = raw.toCharArray();
+//		
+//		for(int i = 1; i < split.length-1; i++) {
+//			char current = split[i];
+//			char next = split[i+1];
+//			if(Character.isDigit(current) && )
+//		}
+//		
+//	}
+	
+	
+	
 }
