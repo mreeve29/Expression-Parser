@@ -18,7 +18,7 @@ public class Parser {
 		return raw;
 	}
 	
-	private void setNums() {
+	private void setNums(){
 		String numsStr = "";
 		char[] split = raw.toCharArray();
 		for(int i = 0; i < split.length - 1; i++) {
@@ -39,12 +39,8 @@ public class Parser {
 		
 		String[] nums = numsStr.split(" ");
 		
-		try {
-			num1 = Integer.parseInt(nums[0]);
-			num2 = Integer.parseInt(nums[1]);
-		}catch(IllegalFormatException e) {
-			
-		}
+		num1 = Integer.parseInt(nums[0]);
+		num2 = Integer.parseInt(nums[1]);
 		
 	}
 	

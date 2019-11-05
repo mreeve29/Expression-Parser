@@ -15,6 +15,11 @@ public class ParserGUI extends GBFrame{
 			String input = stripInput(inputField.getText());
 			ErrorCheck error = new ErrorCheck(input);
 			
+			try {
+				error.checkEqualSignFormat();
+			}catch (Exception e) {
+				messageBox(e.getMessage());
+			}
 			
 			
 			
@@ -36,12 +41,13 @@ public class ParserGUI extends GBFrame{
 				result+=c;
 			}
 		}
-		return result.substring(1);
+		return result;
 	}
 	
 	
 	
 	public ParserGUI() {
+		setContentPane(new JLabel(new ImageIcon("C:\\Users\\20mreeve\\Pictures\\halp.jpg")));
 		
 	}
 	

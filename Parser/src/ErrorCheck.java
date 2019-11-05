@@ -8,19 +8,23 @@ public class ErrorCheck {
 	}
 	
 	
-	public String check() throws IllegalFormatException {
-		String error = "NOERROR";
-		
+//	public void check() throws IllegalFormatException {
+//		try {
+//			checkFormat();
+//		}catch (Exception e) {
+//			throw new IllegalFormatException("Must start")
+//		}
+//	}
+//	
+	
+	public void checkEqualSignFormat() throws IllegalFormatException{
 		if(baseString.charAt(0) != '=') {
-			error = "Must start with equals sign";
 			throw new IllegalFormatException("Must start with equals sign");
 		}
 		
-		
-		
-		
-		return error;
 	}
+	
+	
 	
 	
 }
