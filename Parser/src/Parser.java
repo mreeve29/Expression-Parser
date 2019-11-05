@@ -6,23 +6,12 @@ public class Parser {
 	
 	private char operator;
 	
+	private double result;
+	
 	public Parser(String input) {
 		raw = input;
-		stripRaw();
 		setNums();
-	}
-	
-	
-	public void stripRaw() {
-		char[] arr = raw.toCharArray();
-		String result = "";
-		for(char c : arr) {
-			if(!Character.isWhitespace(c)) {
-				result+=c;
-			}
-		}
-		raw = result.substring(1);
-		System.out.println(raw);
+		evaluate();
 	}
 	
 	public String getRaw() {
@@ -39,7 +28,6 @@ public class Parser {
 			}
 			if(Character.isDigit(split[i])) {
 				numsStr += split[i];
-				System.out.println("Number: " + split[i] + " at " + i);
 			}
 			if(isOperator(split[i])) {
 				operator = split[i];
@@ -50,8 +38,14 @@ public class Parser {
 		}
 		
 		String[] nums = numsStr.split(" ");
-		num1 = Integer.parseInt(nums[0]);
-		num2 = Integer.parseInt(nums[1]);
+		
+		try {
+			num1 = Integer.parseInt(nums[0]);
+			num2 = Integer.parseInt(nums[1]);
+		}catch(IllegalFormatException e) {
+			
+		}
+		
 	}
 	
 	private boolean isOperator(char c) {
@@ -63,8 +57,6 @@ public class Parser {
 	
 	
 	public double evaluate() {
-		double result = 0;
-		
 		switch(operator) {
 		case '-':
 			result = num1 - num2;
@@ -82,6 +74,20 @@ public class Parser {
 			break;
 		}
 		return result;
+	}
+	
+	public String toString() {
+		if(isInt(result)) {
+			return Integer.toString((int)result);
+		}else {
+			return "" + result;
+		}
+	}
+	
+	private boolean isInt(double x) {
+		if(x == (int)x) {
+			return true;
+		}else return false;
 	}
 	
 }
