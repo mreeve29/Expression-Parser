@@ -44,10 +44,8 @@ public class ParserGUI extends GBFrame{
 		return result;
 	}
 	
-	
-	
 	public ParserGUI() {
-		setContentPane(new JLabel(new ImageIcon("C:\\Users\\20mreeve\\Pictures\\halp.jpg")));
+		setContentPane(new JLabel(new ImageIcon("halp.jpg")));
 		
 	}
 	

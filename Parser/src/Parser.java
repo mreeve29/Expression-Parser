@@ -2,7 +2,7 @@ public class Parser {
 
 	private String raw;
 	
-	private int num1,num2;
+	private double num1,num2;
 	
 	private char operator;
 	
@@ -39,8 +39,8 @@ public class Parser {
 		
 		String[] nums = numsStr.split(" ");
 		
-		num1 = Integer.parseInt(nums[0]);
-		num2 = Integer.parseInt(nums[1]);
+		num1 = Double.parseDouble(nums[0]);
+		num2 = Double.parseDouble(nums[1]);
 		
 	}
 	
