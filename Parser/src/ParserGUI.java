@@ -15,15 +15,20 @@ public class ParserGUI extends GBFrame{
 			String input = stripInput(inputField.getText());
 			ErrorCheck error = new ErrorCheck(input);
 			
+			Parser p = new Parser(input);
+			
 			try {
 				error.checkEqualSignFormat();
+				error.containsCharacters(input);
 			}catch (Exception e) {
-				messageBox(e.getMessage());
+				resultLabel.setText("Error: " + e.getMessage());
+				inputField.requestFocusInWindow();
+				return;
 			}
 			
+			p.setNums();
+			p.evaluate();
 			
-			
-			Parser p = new Parser(input);
 			resultLabel.setText(p.toString());
 		}else if(button == resetButton) {
 			inputField.setText("");
@@ -45,7 +50,6 @@ public class ParserGUI extends GBFrame{
 	}
 	
 	public ParserGUI() {
-		setContentPane(new JLabel(new ImageIcon("halp.jpg")));
 		
 	}
 	

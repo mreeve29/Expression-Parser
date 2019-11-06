@@ -10,15 +10,13 @@ public class Parser {
 	
 	public Parser(String input) {
 		raw = input;
-		setNums();
-		evaluate();
 	}
 	
 	public String getRaw() {
 		return raw;
 	}
 	
-	private void setNums(){
+	public void setNums(){
 		String numsStr = "";
 		char[] split = raw.toCharArray();
 		for(int i = 0; i < split.length - 1; i++) {
@@ -39,10 +37,11 @@ public class Parser {
 		
 		String[] nums = numsStr.split(" ");
 		
-		num1 = Double.parseDouble(nums[0]);
-		num2 = Double.parseDouble(nums[1]);
+		num1 = Integer.parseInt(nums[0]);
+		num2 = Integer.parseInt(nums[1]);
 		
 	}
+	
 	
 	private boolean isOperator(char c) {
 		if(c == '-' || c == '+' || c == '/' || c == '*') {
